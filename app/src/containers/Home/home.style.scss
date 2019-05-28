@@ -1,0 +1,148 @@
+@import "./components/styles/infobox.style.scss";
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-10);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.Home {
+  width: 100%;
+  height: 100%;
+
+  &-filter {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    &-header {
+      display: flex;
+      justify-content: flex-end;
+
+      &-btn {
+        border: none;
+        box-shadow: 0px 0px 1px 1px rgba(184, 184, 184, 0.34);
+        border-radius: 2px;
+        padding: 10px 15px;
+        font-size: 16px;
+        float: right;
+        clear: left;
+        min-width: 100px;
+
+        span {
+          padding-right: 5px;
+        }
+      }
+    }
+
+    &-content {
+      background-color: $white;
+      padding: 20px 10px 10px;
+      max-width: 300px;
+      border-radius: 3px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      box-sizing: border-box;
+      display: none;
+
+      &-label {
+        font-size: 14px;
+        display: block;
+        padding-bottom: 5px;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      &.isOpen {
+        -webkit-animation: slide-in-top 0.5s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        display: flex;
+      }
+
+      &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $white;
+        position: absolute;
+        top: -10px;
+        right: 15px;
+      }
+
+      &-badge {
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        margin: 5px 5px 5px 0;
+        border: 1px solid #e9e9e9;
+        outline: none;
+
+        &:hover,
+        &.isSelected {
+          background-color: $primary;
+          color: $white;
+          border-color: $primary;
+        }
+      }
+
+      &-footer {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        padding: 10px;
+
+        &-apply {
+          padding: 10px 20px;
+          font-size: 11px;
+          border: 1px solid $primary;
+          border-radius: 20px;
+
+          &:disabled {
+            background: #d2d2d2;
+            color: #828282;
+            cursor: no-drop;
+            border: 1px solid #d2d2d2;
+
+            &:hover {
+              background: #d2d2d2;
+              color: #828282;
+              cursor: no-drop;
+              border: 1px solid #d2d2d2;
+            }
+          }
+
+          &:hover {
+            background-color: $primary;
+            color: $white;
+            border-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

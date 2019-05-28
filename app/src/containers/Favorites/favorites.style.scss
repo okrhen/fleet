@@ -1,0 +1,37 @@
+@import "./components/styles/moreinfo.style.scss";
+
+.Favorites {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-y: auto;
+  height: 100%;
+
+  &-label {
+    font-size: 24px;
+    height: 70px;
+    padding: 20px;
+    background-color: $white;
+    box-sizing: border-box;
+  }
+
+  &-list {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &-empty {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 70px);
+    justify-content: center;
+    align-items: center;
+
+    &-icon {
+      font-size: 80px;
+      display: block;
+      color: rgb(190, 78, 78);
+      padding-bottom: 15px;
+    }
+  }
+}
